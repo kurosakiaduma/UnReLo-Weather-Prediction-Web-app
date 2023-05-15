@@ -33,7 +33,7 @@ import {
   StatusOnlineIcon,
 } from "@heroicons/react/outline";
 
-export default function SensorTwo(props) {
+export default function SensorFour(props) {
   const [selectedView, setSelectedView] = useState("1");
 
   const { title } = props;
@@ -63,27 +63,27 @@ export default function SensorTwo(props) {
   const chardata = [
     {
       date: "Jan 23",
-      Temperature: 26,
-      Humidity: 65,
+      Temperature: 24.5,
+      Humidity: 68,
     },
     {
       date: "Feb 23",
-      Temperature: 32,
-      Humidity: 50,
+      Temperature: 28,
+      Humidity: 44,
     },
     {
       date: "Mar 23",
-      Temperature: 17,
-      Humidity: 87,
+      Temperature: 29,
+      Humidity: 88,
     },
     {
       date: "Apr 23",
       Temperature: 23,
-      Humidity: 82,
+      Humidity: 72,
     },
     {
       date: "May 23",
-      Temperature: 29,
+      Temperature: 32,
       Humidity: 64,
     },
   ];
@@ -91,18 +91,18 @@ export default function SensorTwo(props) {
   const chardata1 = [
     {
       date: "2023-05-04",
-      Temperature: 22,
-      Humidity: 76,
+      Temperature: 23,
+      Humidity: 78,
     },
     {
       date: "2023-06-04",
       Temperature: 31,
-      Humidity: 60,
+      Humidity: 64,
     },
     {
       date: "2023-07-04",
       Temperature: 20,
-      Humidity: 85,
+      Humidity: 49,
     },
     {
       date: "2023-08-04",
@@ -119,34 +119,34 @@ export default function SensorTwo(props) {
   const chardata2 = [
     {
       date: "May 23",
-      Temperature: 24,
-      Humidity: 64,
+      Temperature: 23.5,
+      Humidity: 65,
     },
     {
       date: "June 23",
-      Temperature: 30,
-      Humidity: 78,
+      Temperature: 31,
+      Humidity: 62,
     },
     {
       date: "July 23",
       Temperature: 20,
-      Humidity: 56,
+      Humidity: 76,
     },
     {
       date: "Aug 23",
       Temperature: 28,
-      Humidity: 62,
+      Humidity: 60,
     },
     {
       date: "Sep 23",
       Temperature: 33,
-      Humidity: 66,
+      Humidity: 54,
     },
-  ];
+  ]
 
   return (
     <main className="bg-slate-50 p-6 sm:p-10">
-      <Title> Meru Sensor Statistics</Title>
+      <Title> Nakuru Sensor Statistics</Title>
       <Text>
         This is an overview of the statistical data collected from the sensor.
       </Text>
@@ -202,8 +202,8 @@ export default function SensorTwo(props) {
                     </div>
                   </div>
                   <div>
-                    <Text style={{ fontSize: "20px" }}>Temperature: 26 °C</Text>
-                    <Text style={{ fontSize: "20px" }}>Humidity: 70 %</Text>
+                    <Text style={{ fontSize: "20px" }}>Temperature: 29 °C</Text>
+                    <Text style={{ fontSize: "20px" }}>Humidity: 60 %</Text>
                   </div>
                 </Flex>
               </Card>
@@ -228,14 +228,14 @@ export default function SensorTwo(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 31°C</Text>
-                  <Text> Min: 20°C</Text>
+                  <Text> Max: 30°C</Text>
+                  <Text> Min: 22°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>60%</Text>
+                  <Text>55%</Text>
                 </div>
               </Flex>
             </Card>
@@ -258,14 +258,14 @@ export default function SensorTwo(props) {
                   </div>
                 </div>
                 <div>
-                  <Text>Max: 25°C</Text>
-                  <Text>Min: 18°C</Text>
+                  <Text>Max: 22°C</Text>
+                  <Text>Min: 16°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>70%</Text>
+                  <Text>73%</Text>
                 </div>
               </Flex>
             </Card>
@@ -288,14 +288,14 @@ export default function SensorTwo(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 23 °C</Text>
-                  <Text> Min: 15°C</Text>
+                  <Text> Max: 24 °C</Text>
+                  <Text> Min: 19°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>70%</Text>
+                  <Text>82%</Text>
                 </div>
               </Flex>
             </Card>
@@ -318,14 +318,14 @@ export default function SensorTwo(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 31 °C</Text>
+                  <Text> Max: 30.5 °C</Text>
                   <Text> Min: 26 °C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>70%</Text>
+                  <Text>66%</Text>
                 </div>
               </Flex>
             </Card>
@@ -348,14 +348,14 @@ export default function SensorTwo(props) {
                   </div>
                 </div>
                 <div>
-                  <Text>Max: 32°C</Text>
-                  <Text>Min: 25°C</Text>
+                  <Text>Max: 33°C</Text>
+                  <Text>Min: 28°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>66%</Text>
+                  <Text>87%</Text>
                 </div>
               </Flex>
             </Card>
@@ -378,14 +378,14 @@ export default function SensorTwo(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 34°C </Text>
-                  <Text> Min: 27°C </Text>
+                  <Text> Max: 26°C </Text>
+                  <Text> Min: 20°C </Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>66%</Text>
+                  <Text>89%</Text>
                 </div>
               </Flex>
             </Card>
@@ -411,7 +411,10 @@ export default function SensorTwo(props) {
           <div className="mt-6">
             <Card>
               <Title>This year's sensor statistics</Title>
-              <Text>Visualization of data collected throughout the year for the sensor</Text>
+              <Text>
+                Visualization of data collected throughout the year for the
+                sensor
+              </Text>
               <AreaChart
                 className="h-72 mt-4"
                 data={chardata}
@@ -421,21 +424,22 @@ export default function SensorTwo(props) {
               />
             </Card>
           </div>
-          {/* Predictions */}
+
+          {/* Projected projections */}
           <div>
-          <div className="mt-6">
-            <Card>
-              <Title>Projected Statistics</Title>
-              <Text>Projected weather patterns for sensor area</Text>
-              <AreaChart
-                className="h-72 mt-4"
-                data={chardata2}
-                index="date"
-                categories={["Temperature", "Humidity"]}
-                colors={["red", "blue"]}
-              />
-            </Card>
-          </div>
+            <div className="mt-6">
+              <Card>
+                <Title>Projected Statistics</Title>
+                <Text>Projected weather patterns for sensor area</Text>
+                <AreaChart
+                  className="h-72 mt-4"
+                  data={chardata2}
+                  index="date"
+                  categories={["Temperature", "Humidity"]}
+                  colors={["red", "blue"]}
+                />
+              </Card>
+            </div>
           </div>
         </>
       ) : (
