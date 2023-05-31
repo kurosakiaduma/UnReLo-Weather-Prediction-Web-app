@@ -7,7 +7,6 @@ import SensorFour from "./Sensorstats/sensorFour";
 import Login from "../src/Authentication/Login/Login";
 import { AuthProvider } from "../src/Authentication/Provider/AuthProvider";
 import WeatherDataGrid from "../src/Pages/Weatherdata";
-import WeatherDataGrid1 from "./Pages/Weatherdata1";
 import WeatherDataGrid2 from "./Pages/Weatherdata2";
 import WeatherDataGrid3 from "./Pages/Weatherdata3";
 import "./index.css";
@@ -30,7 +29,10 @@ root.render(
           <Route path="/register" element={<Register />}></Route>
           <Route path="/weatherdata" element={<WeatherDataGrid />}></Route>
           <Route path="/home" element={<Home />}></Route>
-          <Route path="/weatherdata1" element={<WeatherDataGrid1 />}></Route>
+          <Route
+            path="/weatherdata1"
+            element={<nyeriWeatherDataGrid />}
+          ></Route>
           <Route path="/weatherdata2" element={<WeatherDataGrid2 />}></Route>
           <Route path="/weatherdata3" element={<WeatherDataGrid3 />}></Route>
           <Route path="/sensorOne" element={<SensorOne />}></Route>

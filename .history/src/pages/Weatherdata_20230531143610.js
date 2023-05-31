@@ -28,16 +28,14 @@ export default function WeatherDataGrid(props) {
   const [tempHumidity_Data, settempHumidity_Data] = useState([]);
   const [tempHumidity_TableData2, settempHumidity_TableData2] = useState([]);
 
-  // Nakuru sensor data
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         // 5 Day forecast endpoint.
         const response = await axios.post("http://127.0.0.1:5000/predict", {
-          start_date: "2023/06/02",
+          start_date: "2023/05/02",
           end_date: "2023/06/03",
-          sesnor: 1,
+          interval: "hourly",
         });
 
         const fetchedData = response.data; // Assuming the fetched data is in the correct format
@@ -55,7 +53,7 @@ export default function WeatherDataGrid(props) {
         const response2 = await axios.post("http://127.0.0.1:5000/predict", {
           start_date: "2023/03/02",
           end_date: "2023/06/02",
-          sensor: 1,
+          interval: "weekly",
         });
 
         const fetchedData2 = response2.data;
@@ -72,7 +70,7 @@ export default function WeatherDataGrid(props) {
         const response3 = await axios.post("http://127.0.0.1:5000/predict", {
           start_date: "2022/06/02",
           end_date: "2023/06/02",
-          sensor: 1,
+          interval: "monthly",
         });
 
         const fetchedData3 = response3.data;

@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     // Map loader
     const loader = new Loader({
-      apiKey: "your_api_key",
+      apiKey: "AIzaSyB0K6-vbNo4AC2Wbz1b8cF_Y-EqaWuzGg0",
       version: "weekly",
       libraries: ["places"],
     });

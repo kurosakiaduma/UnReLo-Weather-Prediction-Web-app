@@ -22,7 +22,7 @@ import Agricomponent from "../Components/Agri_component";
 import SensorInfo from "../Components/Sensorsinfo";
 import axios from "axios";
 
-export default function WeatherDataGrid(props) {
+export default function kisumuWeatherDataGrid(props) {
   const [selectedView, setSelectedView] = useState("1");
   const [tempratureData, setTempratureData] = useState([]);
   const [tempHumidity_Data, settempHumidity_Data] = useState([]);

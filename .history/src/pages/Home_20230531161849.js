@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     // Map loader
     const loader = new Loader({
-      apiKey: "your_api_key",
+      apiKey: "AIzaSyB0K6-vbNo4AC2Wbz1b8cF_Y-EqaWuzGg0",
       version: "weekly",
       libraries: ["places"],
     });
@@ -67,7 +67,7 @@ const Home = () => {
       });
 
       const marker2 = new google.maps.Marker({
-        position: { lat: 0.43, lng: 36.95 },
+        position: { lat: 0.403891, lng: 36.965727 },
         map: map,
         title: "Nyeri",
       });
@@ -82,7 +82,7 @@ const Home = () => {
       <h1> <b> Sensor Location: ${location}</b> </h1>
         <h2> Temperature: ${temperature}&deg;C </h2>
         <h2> Humidity: ${humidity}% </h2>
-        <a href="http://localhost:3000/weatherdata1" style="color:blue; text-decoration:underline;">View more stats</a>
+        <a href="http://localhost:3000/weatherdata" style="color:blue; text-decoration:underline;">View more stats</a>
       </div>
       `;
 
@@ -99,7 +99,7 @@ const Home = () => {
       });
 
       const marker3 = new google.maps.Marker({
-        position: { lat: 0.3, lng: 36.08 },
+        position: { lat: 0.30, lng: 36.08 },
         map: map,
         title: "Nakuru",
       });
@@ -115,7 +115,7 @@ const Home = () => {
         <h2> Temperature: ${temperature}&deg;C </h2>
         <h2> Humidity: ${humidity}% </h2>
       </div>
-      <a href="http://localhost:3000/weatherdata2" style="color:blue; text-decoration:underline;">View more stats</a>
+      <a href="http://localhost:3000/weatherdata" style="color:blue; text-decoration:underline;">View more stats</a>
       `;
 
         const infowindow = new google.maps.InfoWindow({
@@ -131,7 +131,7 @@ const Home = () => {
       });
 
       const marker4 = new google.maps.Marker({
-        position: { lat: 3.39, lng: 35.92 },
+        position: { lat: 3.193, lng: 35.675 },
         map,
         title: "Turkana",
       });
@@ -139,6 +139,7 @@ const Home = () => {
       marker4.addListener("click", () => {
         const temperature = 25;
         const humidity = 70;
+        const soilMoisture = 45;
         const location = marker3.title;
 
         const contentString = `
@@ -146,8 +147,9 @@ const Home = () => {
     <h1> <b> Sensor Location: ${location}</b> </h1>
       <h2> Temperature: ${temperature}&deg;C </h2>
       <h2> Humidity: ${humidity}% </h2>
+      <h2> Soil Moisture: ${soilMoisture}% </h2>
     </div>
-    <a href="http://localhost:3000/weatherdata3" style="color:blue; text-decoration:underline;">View more stats</a>
+    <a href="http://localhost:3000/weatherdata" style="color:blue; text-decoration:underline;">View more stats</a>
     `;
 
         const infowindow = new google.maps.InfoWindow({
