@@ -4,8 +4,6 @@ import { Card, Grid, Text, Title, Col, Divider, Subtitle } from "@tremor/react";
 export default function Agricomponent() {
   const [showLegumes, setShowLegumes] = useState(false);
   const [showTuberCrops, setShowTuberCrops] = useState(false);
-  const [showCereals, setShowCereals] = useState(false);
-  const [showPests, setShowPests] = useState(false);
 
   const handleLegumesClick = () => {
     setShowLegumes(!showLegumes);
@@ -14,13 +12,6 @@ export default function Agricomponent() {
   const handleTuberCropsClick = () => {
     setShowTuberCrops(!showTuberCrops);
   };
-
-  const handleCerealsClick = () => {
-    setShowCereals(!showCereals);
-  }
-  const handlePestsClick = () => {
-    setShowPests(!showPests);
-  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

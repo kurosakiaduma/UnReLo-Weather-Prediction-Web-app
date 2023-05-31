@@ -48,6 +48,7 @@ const Home = () => {
         <h1> <b> Sensor Location: ${location}</b> </h1>
           <h2> Temperature: ${temperature}&deg;C </h2>
           <h2> Humidity: ${humidity}% </h2>
+          <h2> Soil Moisture: ${soilMoisture}% </h2>
         <a href="http://localhost:3000/weatherdata" style="color:blue; text-decoration:underline">
         View more stats
         </a>
@@ -75,6 +76,7 @@ const Home = () => {
       marker2.addListener("click", () => {
         const temperature = 25;
         const humidity = 70;
+        const soilMoisture = 45;
         const location = marker1.title;
 
         const contentString = `
@@ -82,6 +84,7 @@ const Home = () => {
       <h1> <b> Sensor Location: ${location}</b> </h1>
         <h2> Temperature: ${temperature}&deg;C </h2>
         <h2> Humidity: ${humidity}% </h2>
+        <h2> Soil Moisture: ${soilMoisture}% </h2>
         <a href="http://localhost:3000/weatherdata" style="color:blue; text-decoration:underline;">View more stats</a>
       </div>
       `;
