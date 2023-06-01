@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     // Map loader
     const loader = new Loader({
-      apiKey: "AIzaSyB0K6-vbNo4AC2Wbz1b8cF_Y-EqaWuzGg0",
+      apiKey: "AIzaSyBkUPuVjvJAj8QbR3R340J74uEYGnlyaCg",
       version: "weekly",
       libraries: ["places"],
     });
@@ -48,7 +48,7 @@ const Home = () => {
         <h1> <b> Sensor Location: ${location}</b> </h1>
           <h2> Temperature: ${temperature}&deg;C </h2>
           <h2> Humidity: ${humidity}% </h2>
-        <a href="http://localhost:3000/sensorOne" style="color:blue; text-decoration:underline">
+        <a href="http://localhost:3000/weatherdata" style="color:blue; text-decoration:underline">
         View more stats
         </a>
         </div>
@@ -75,14 +75,14 @@ const Home = () => {
       marker2.addListener("click", () => {
         const temperature = 25;
         const humidity = 70;
-        const location = marker2.title;
+        const location = marker1.title;
 
         const contentString = `
       <div>
       <h1> <b> Sensor Location: ${location}</b> </h1>
         <h2> Temperature: ${temperature}&deg;C </h2>
         <h2> Humidity: ${humidity}% </h2>
-        <a href="http://localhost:3000/sensorTwo" style="color:blue; text-decoration:underline;">View more stats</a>
+        <a href="http://localhost:3000/weatherdata1" style="color:blue; text-decoration:underline;">View more stats</a>
       </div>
       `;
 
@@ -107,7 +107,7 @@ const Home = () => {
       marker3.addListener("click", () => {
         const temperature = 25;
         const humidity = 70;
-        const location = marker3.title;
+        const location = marker2.title;
 
         const contentString = `
       <div>
@@ -115,7 +115,7 @@ const Home = () => {
         <h2> Temperature: ${temperature}&deg;C </h2>
         <h2> Humidity: ${humidity}% </h2>
       </div>
-      <a href="http://localhost:3000/sensorThree" style="color:blue; text-decoration:underline;">View more stats</a>
+      <a href="http://localhost:3000/weatherdata2" style="color:blue; text-decoration:underline;">View more stats</a>
       `;
 
         const infowindow = new google.maps.InfoWindow({
@@ -139,7 +139,7 @@ const Home = () => {
       marker4.addListener("click", () => {
         const temperature = 25;
         const humidity = 70;
-        const location = marker4.title;
+        const location = marker3.title;
 
         const contentString = `
     <div>
@@ -147,7 +147,7 @@ const Home = () => {
       <h2> Temperature: ${temperature}&deg;C </h2>
       <h2> Humidity: ${humidity}% </h2>
     </div>
-    <a href="http://localhost:3000/sensorFour" style="color:blue; text-decoration:underline;">View more stats</a>
+    <a href="http://localhost:3000/weatherdata3" style="color:blue; text-decoration:underline;">View more stats</a>
     `;
 
         const infowindow = new google.maps.InfoWindow({

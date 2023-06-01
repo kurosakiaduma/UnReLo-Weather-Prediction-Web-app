@@ -16,6 +16,7 @@ import {
   faCloudShowersHeavy,
   faWind,
   faTemperatureLow,
+  faCloud,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Agricomponent from "../Components/Agri_component";
@@ -27,28 +28,28 @@ export default function WeatherDataGrid(props) {
   const tempratureData = [
     {
       date: "June 2",
-      Temperature: 26.56,
-      Humidity: 73,
+      Temperature: 17.62,
+      Humidity: 83,
     },
     {
       date: "June 3",
-      Temperature: 20.55,
+      Temperature: 23.56,
       Humidity: 66.5,
     },
     {
       date: "June 4",
-      Temperature: 26.45,
-      Humidity: 67.5,
+      Temperature: 17.23,
+      Humidity: 78.7,
     },
     {
       date: "June 5",
-      Temperature: 20.46,
+      Temperature: 23.42,
       Humidity: 72,
     },
     {
       date: "June 6",
-      Temperature: 26.41,
-      Humidity: 73,
+      Temperature: 17.46,
+      Humidity: 85,
     },
   ];
   const tempHumidity_Data = [
@@ -162,7 +163,7 @@ export default function WeatherDataGrid(props) {
                     <Text>Current Weather</Text>
                     <div style={{ paddingTop: "10px" }}>
                       <FontAwesomeIcon
-                        icon={faSun}
+                        icon={faCloudSun}
                         size="2xl"
                         style={{
                           "--fa-primary-opacity": "0.9",
@@ -175,11 +176,11 @@ export default function WeatherDataGrid(props) {
                   <div>
                     <Text style={{ fontSize: "20px" }}>
                       {" "}
-                      Temp: 23.88°C
+                      Temp:{tempratureData[7]?.Temperature}°C
                     </Text>
                     <Text style={{ fontSize: "20px" }}>
                       {" "}
-                      Humidity: 75 %
+                      Humidity:{tempratureData[7]?.Humidity} %
                     </Text>
                   </div>
                 </Flex>
@@ -207,13 +208,13 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 24.72°C</Text>
+                  <Text> Temp: 20.24°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text> 74%</Text>
+                  <Text> 78.34%</Text>
                 </div>
               </Flex>
             </Card>
@@ -236,13 +237,13 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 25.60°C</Text>
+                  <Text> Temp: 21.11°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>66.95%</Text>
+                  <Text>76%</Text>
                 </div>
               </Flex>
             </Card>
@@ -265,13 +266,13 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 26.45°C</Text>
+                  <Text> Temp: 21.23°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>65.68%</Text>
+                  <Text>75.21%</Text>
                 </div>
               </Flex>
             </Card>
@@ -294,13 +295,13 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 26.56°C</Text>
+                  <Text> Temp: 21.20°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>65.68%</Text>
+                  <Text>75.21%</Text>
                 </div>
               </Flex>
             </Card>
@@ -323,13 +324,13 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 26.55°C</Text>
+                  <Text> Temp: 20.85°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>65.68%</Text>
+                  <Text>75.90%</Text>
                 </div>
               </Flex>
             </Card>
@@ -352,13 +353,13 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 26.37°C</Text>
+                  <Text> Temp: 20.02°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>66.23%</Text>
+                  <Text>77.30%</Text>
                 </div>
               </Flex>
             </Card>
@@ -373,7 +374,7 @@ export default function WeatherDataGrid(props) {
                   <Text>Today</Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
-                      icon={faCloudShowersHeavy}
+                      icon={faCloud}
                       size="2xl"
                       style={{
                         "--fa-primary-opacity": "0.9",
@@ -384,14 +385,14 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 26.56°C</Text>
-                  <Text> Min: 20.50°C</Text>
+                  <Text> Max: 21.21°C</Text>
+                  <Text> Min: 14.02°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text> 73%</Text>
+                  <Text> 83%</Text>
                 </div>
               </Flex>
             </Card>
@@ -403,7 +404,7 @@ export default function WeatherDataGrid(props) {
                   <Text>Tomorrow</Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
-                      icon={faSun}
+                      icon={faCloudSun}
                       size="2xl"
                       style={{
                         "--fa-primary-opacity": "0.9",
@@ -433,7 +434,7 @@ export default function WeatherDataGrid(props) {
                   <Text>Sunday</Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
-                      icon={faCloudSunRain}
+                      icon={faCloudSun}
                       size="2xl"
                       style={{
                         "--fa-primary-opacity": "0.9",
@@ -444,14 +445,14 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 26.45°C</Text>
-                  <Text> Min: 20.54°C</Text>
+                  <Text> Max: 20.58°C</Text>
+                  <Text> Min: 13.87°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>67.5%</Text>
+                  <Text>78.7%</Text>
                 </div>
               </Flex>
             </Card>
@@ -504,14 +505,14 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text>Max: 26.41°C</Text>
-                  <Text>Min: 20.48°C</Text>
+                  <Text>Max: 20.50°C</Text>
+                  <Text>Min: 14.41°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>72.7%</Text>
+                  <Text>85%</Text>
                 </div>
               </Flex>
             </Card>
@@ -534,8 +535,8 @@ export default function WeatherDataGrid(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 26.41°C </Text>
-                  <Text> Min: 20°C </Text>
+                  <Text> Max: 20.39°C </Text>
+                  <Text> Min: 13.71°C </Text>
                 </div>
               </Flex>
               <Flex className="mt-4">

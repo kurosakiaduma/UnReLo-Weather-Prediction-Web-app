@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Card,
   Grid,
@@ -6,18 +6,8 @@ import {
   TabList,
   Text,
   Title,
-  BadgeDelta,
   Flex,
-  ProgressBar,
-  Metric,
   AreaChart,
-  Table,
-  TableHead,
-  TableRow,
-  TableHeaderCell,
-  TableBody,
-  TableCell,
-  Badge,
 } from "@tremor/react";
 import {
   faCloudSun,
@@ -25,151 +15,86 @@ import {
   faCloudSunRain,
   faCloudShowersHeavy,
   faWind,
-  faTint,
+  faTemperatureLow,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  InformationCircleIcon,
-  StatusOnlineIcon,
-} from "@heroicons/react/outline";
+import Agricomponent from "../Components/Agri_component";
+import SensorInfo from "../Components/Sensorsinfo";
+import axios from "axios";
 
-export default function SensorFour(props) {
+export default function WeatherDataGrid(props) {
   const [selectedView, setSelectedView] = useState("1");
 
-  const { title } = props;
-
-  const data1 = [
+  const tempratureData = [
     {
-      name: "LoRa WAN 1",
-      Position: "Nairobi",
-      status: "active",
+      date: "June 2",
+      Temperature: 26.56,
+      Humidity: 73,
     },
     {
-      name: "LoRa WAN 2",
-      Position: "Nakuru",
-      status: "active",
+      date: "June 3",
+      Temperature: 20.55,
+      Humidity: 66.5,
     },
     {
-      name: "LoRa WAN 3",
-      Position: "Kiambu",
-      status: "active",
+      date: "June 4",
+      Temperature: 26.45,
+      Humidity: 67.5,
     },
     {
-      name: "LoRa WAN 4",
-      Position: "Malindi",
-      status: "inactive",
-    },
-  ];
-  const chardata = [
-    {
-      date: "Jan 23",
-      Temperature: 24.5,
-      Humidity: 68,
-    },
-    {
-      date: "Feb 23",
-      Temperature: 28,
-      Humidity: 44,
-    },
-    {
-      date: "Mar 23",
-      Temperature: 29,
-      Humidity: 88,
-    },
-    {
-      date: "Apr 23",
-      Temperature: 23,
+      date: "June 5",
+      Temperature: 20.46,
       Humidity: 72,
     },
     {
-      date: "May 23",
-      Temperature: 32,
-      Humidity: 64,
+      date: "June 6",
+      Temperature: 26.41,
+      Humidity: 73,
     },
-  ];
+  ]
+  const [tempHumidity_Data, settempHumidity_Data] = useState([]);
+  const [tempHumidity_TableData2, settempHumidity_TableData2] = useState([]);
 
-  const chardata1 = [
-    {
-      date: "2023-05-04",
-      Temperature: 23,
-      Humidity: 78,
-    },
-    {
-      date: "2023-06-04",
-      Temperature: 31,
-      Humidity: 64,
-    },
-    {
-      date: "2023-07-04",
-      Temperature: 20,
-      Humidity: 49,
-    },
-    {
-      date: "2023-08-04",
-      Temperature: 33,
-      Humidity: 70,
-    },
-    {
-      date: "2023-09-04",
-      Temperature: 29,
-      Humidity: 55,
-    },
-  ];
+  // Nakuru sensor data
 
-  const chardata2 = [
-    {
-      date: "2023-05-04",
-      Humidity: 55,
-    },
-    {
-      date: "2023-06-04",
-      Humidity: 60,
-    },
-    {
-      date: "2023-07-04",
-      Humidity: 75,
-    },
-    {
-      date: "2023-08-04",
-      Humidity: 62,
-    },
-    {
-      date: "2023-09-04",
-      Humidity: 85,
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 5 Day forecast endpoint.
+        const response = await axios.post("http://127.0.0.1:5000/predict", {
+          start_date: "2023/06/02",
+          end_date: "2023/06/03",
+          sensor_id: 1,
+        });
 
-  const chardata3 = [
-    {
-      date: "May 23",
-      Temperature: 23.5,
-      Humidity: 65,
-    },
-    {
-      date: "June 23",
-      Temperature: 31,
-      Humidity: 62,
-    },
-    {
-      date: "July 23",
-      Temperature: 20,
-      Humidity: 76,
-    },
-    {
-      date: "Aug 23",
-      Temperature: 28,
-      Humidity: 60,
-    },
-    {
-      date: "Sep 23",
-      Temperature: 33,
-      Humidity: 54,
-    },
-  ];
+        const fetchedData = response.data; // Assuming the fetched data is in the correct format
+
+        //Convert fetched data to the desired format
+        const temperatureTableData = Object.keys(fetchedData).map(
+          (key) => ({
+            number: key,
+            Temperature: fetchedData[key].avg_temp.toFixed(2),
+            Humidity: (fetchedData[key].avg_humidity * 100).toFixed(2) ,
+          })
+        );
+
+        
+
+        // setTempratureData(temperatureTableData);
+        // settempHumidity_Data(tempHumidityTableData);
+        // settempHumidity_TableData2(tempHumidityTableData2);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const { title } = props;
 
   return (
     <main className="bg-slate-50 p-6 sm:p-10">
-      <Title> Nakuru Sensor Statistics</Title>
+      <Title>{title}Statistics</Title>
       <Text>
         This is an overview of the statistical data collected from the sensor.
       </Text>
@@ -181,8 +106,10 @@ export default function SensorFour(props) {
       >
         <Tab value="1" text="Overview" />
         <Tab value="2" text="Sensor Details" />
+        <Tab value="3" text="Agricultural Recommendations" />
       </TabList>
 
+      {/* Sensor statistics */}
       {selectedView === "1" ? (
         <>
           <div
@@ -206,7 +133,7 @@ export default function SensorFour(props) {
               <Card
                 className="max-w-lg"
                 decoration="top"
-                decorationColor="blue"
+                decorationColor="orange"
                 style={{ margin: "0 auto" }}
               >
                 <Flex>
@@ -214,7 +141,7 @@ export default function SensorFour(props) {
                     <Text>Current Weather</Text>
                     <div style={{ paddingTop: "10px" }}>
                       <FontAwesomeIcon
-                        icon={faCloudSunRain}
+                        icon={faCloudSun}
                         size="2xl"
                         style={{
                           "--fa-primary-opacity": "0.9",
@@ -225,8 +152,14 @@ export default function SensorFour(props) {
                     </div>
                   </div>
                   <div>
-                    <Text style={{ fontSize: "20px" }}>Temperature: 29 °C</Text>
-                    <Text style={{ fontSize: "20px" }}>Humidity: 60 %</Text>
+                    <Text style={{ fontSize: "20px" }}>
+                      {" "}
+                      Temp:{tempratureData[7]?.Temperature}°C
+                    </Text>
+                    <Text style={{ fontSize: "20px" }}>
+                      {" "}
+                      Humidity:{tempratureData[7]?.Humidity} %
+                    </Text>
                   </div>
                 </Flex>
               </Card>
@@ -236,13 +169,13 @@ export default function SensorFour(props) {
           {/* Hourly forecast */}
           <Grid numColsLg={6} className="mt-6 gap-6">
             {/* First Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="blue">
               <Flex alignItems="start">
                 <div>
-                  <Text>15:00</Text>
+                  <Text>09:00</Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
-                      icon={faCloudShowersHeavy}
+                      icon={faTemperatureLow}
                       size="2xl"
                       style={{
                         "--fa-primary-opacity": "0.9",
@@ -253,22 +186,22 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 30°C</Text>
+                  <Text> Temp: 24.72°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>75%</Text>
+                  <Text> 74%</Text>
                 </div>
               </Flex>
             </Card>
 
             {/* 2nd Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="blue">
               <Flex alignItems="start">
                 <div>
-                  <Text> 16:00 </Text>
+                  <Text> 10:00 </Text>
                   <div style={{ paddingTop: "10px", paddingLeft: "5px" }}>
                     <FontAwesomeIcon
                       icon={faSun}
@@ -282,51 +215,22 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 26°C</Text>
+                  <Text> Temp: 25.60°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>67%</Text>
+                  <Text>66.95%</Text>
                 </div>
               </Flex>
             </Card>
 
             {/* Third Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="blue">
               <Flex alignItems="start">
                 <div>
-                  <Text> 17:00 </Text>
-                  <div style={{ paddingTop: "10px" }}>
-                    <FontAwesomeIcon
-                      icon={faCloudSunRain}
-                      size="2xl"
-                      style={{
-                        "--fa-primary-opacity": "0.9",
-                        "--fa-secondary-color": "#ff8000",
-                        "--fa-secondary-opacity ": "0.7",
-                      }}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <Text> Temp: 24 °C</Text>
-                </div>
-              </Flex>
-              <Flex className="mt-4">
-                <Text>Humidity</Text>
-                <div>
-                  <Text> 62% </Text>
-                </div>
-              </Flex>
-            </Card>
-
-            {/* Fourth Card */}
-            <Card className="max-w-lg">
-              <Flex alignItems="start">
-                <div>
-                  <Text> 18:00 </Text>
+                  <Text> 11:00 </Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
                       icon={faSun}
@@ -340,25 +244,54 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 24°C</Text>
+                  <Text> Temp: 26.45°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>60%</Text>
+                  <Text>65.68%</Text>
+                </div>
+              </Flex>
+            </Card>
+
+            {/* Fourth Card */}
+            <Card className="max-w-lg" decoration="top" decorationColor="blue">
+              <Flex alignItems="start">
+                <div>
+                  <Text> 12:00 </Text>
+                  <div style={{ paddingTop: "10px" }}>
+                    <FontAwesomeIcon
+                      icon={faSun}
+                      size="2xl"
+                      style={{
+                        "--fa-primary-opacity": "0.9",
+                        "--fa-secondary-color": "#ff8000",
+                        "--fa-secondary-opacity ": "0.7",
+                      }}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <Text> Temp: 26.56°C</Text>
+                </div>
+              </Flex>
+              <Flex className="mt-4">
+                <Text>Humidity</Text>
+                <div>
+                  <Text>65.68%</Text>
                 </div>
               </Flex>
             </Card>
 
             {/* Fifth Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="blue">
               <Flex alignItems="start">
                 <div>
-                  <Text> 19:00 </Text>
+                  <Text> 13:00 </Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
-                      icon={faWind}
+                      icon={faSun}
                       size="2xl"
                       style={{
                         "--fa-primary-opacity": "0.9",
@@ -369,25 +302,25 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp: 23°C</Text>
+                  <Text> Temp: 26.55°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>57%</Text>
+                  <Text>65.68%</Text>
                 </div>
               </Flex>
             </Card>
 
             {/* Sixth Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="blue">
               <Flex alignItems="start">
                 <div>
-                  <Text>20:00</Text>
+                  <Text>14:00</Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
-                      icon={faCloudSun}
+                      icon={faTemperatureLow}
                       size="2xl"
                       style={{
                         "--fa-primary-opacity": "0.9",
@@ -398,21 +331,22 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Temp : 22°C </Text>
+                  <Text> Temp: 26.37°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>60%</Text>
+                  <Text>66.23%</Text>
                 </div>
               </Flex>
             </Card>
           </Grid>
 
+          {/* Daily forecast  */}
           <Grid numColsLg={6} className="mt-6 gap-6">
             {/* First Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="red">
               <Flex alignItems="start">
                 <div>
                   <Text>Today</Text>
@@ -429,20 +363,20 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 30°C</Text>
-                  <Text> Min: 22°C</Text>
+                  <Text> Max: 26.56°C</Text>
+                  <Text> Min: 20.50°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>55%</Text>
+                  <Text> 73%</Text>
                 </div>
               </Flex>
             </Card>
 
             {/* 2nd Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="red">
               <Flex alignItems="start">
                 <div>
                   <Text>Tomorrow</Text>
@@ -459,23 +393,23 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text>Max: 22°C</Text>
-                  <Text>Min: 16°C</Text>
+                  <Text>Max: 26.56°C</Text>
+                  <Text>Min: 20.55°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>73%</Text>
+                  <Text>66.5%</Text>
                 </div>
               </Flex>
             </Card>
 
             {/* Third Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="red">
               <Flex alignItems="start">
                 <div>
-                  <Text>Saturday</Text>
+                  <Text>Sunday</Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
                       icon={faCloudSunRain}
@@ -489,23 +423,23 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 24 °C</Text>
-                  <Text> Min: 19°C</Text>
+                  <Text> Max: 26.45°C</Text>
+                  <Text> Min: 20.54°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>82%</Text>
+                  <Text>67.5%</Text>
                 </div>
               </Flex>
             </Card>
 
             {/* Fourth Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="red">
               <Flex alignItems="start">
                 <div>
-                  <Text>Sunday</Text>
+                  <Text>Monday</Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
                       icon={faSun}
@@ -519,23 +453,23 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 30.5 °C</Text>
-                  <Text> Min: 26 °C</Text>
+                  <Text> Max: 26.37°C</Text>
+                  <Text> Min: 20.46°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>66%</Text>
+                  <Text>72%</Text>
                 </div>
               </Flex>
             </Card>
 
             {/* Fifth Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="red">
               <Flex alignItems="start">
                 <div>
-                  <Text>Monday</Text>
+                  <Text>Tuesday</Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
                       icon={faWind}
@@ -549,20 +483,20 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text>Max: 33°C</Text>
-                  <Text>Min: 28°C</Text>
+                  <Text>Max: 26.41°C</Text>
+                  <Text>Min: 20.48°C</Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>87%</Text>
+                  <Text>72.7%</Text>
                 </div>
               </Flex>
             </Card>
 
             {/* Sixth Card */}
-            <Card className="max-w-lg">
+            <Card className="max-w-lg" decoration="top" decorationColor="red">
               <Flex alignItems="start">
                 <div>
                   <Text>Tuesday</Text>
@@ -579,119 +513,65 @@ export default function SensorFour(props) {
                   </div>
                 </div>
                 <div>
-                  <Text> Max: 26°C </Text>
+                  <Text> Max: 26.41°C </Text>
                   <Text> Min: 20°C </Text>
                 </div>
               </Flex>
               <Flex className="mt-4">
                 <Text>Humidity</Text>
                 <div>
-                  <Text>89%</Text>
+                  <Text> 73%</Text>
                 </div>
               </Flex>
             </Card>
           </Grid>
 
-          {/* 5 Day forecast charts*/}
-          {/* Temperature chart */}
+          {/* 5 Day Temperature and Humidity chart */}
           <div className="mt-6">
             <Card>
               <Title>5 Day temperature forecast</Title>
               <Text>
                 Five day prediction of weather patterns based on collected data
               </Text>
-              <AreaChart
-                className="h-72 mt-4"
-                data={chardata1}
-                index="date"
-                categories={["Temperature"]}
-                colors={["red"]}
-              />
-            </Card>
-          </div>
-
-          {/* Humidity chart */}
-          <div className="mt-6">
-            <Card>
-              <Title>5 Day humidity forecast</Title>
-              <Text>
-                Five day prediction of weather patterns based on collected data
-              </Text>
-              <AreaChart
-                className="h-72 mt-4"
-                data={chardata2}
-                index="date"
-                categories={["Humidity"]}
-                colors={["orange"]}
-              />
-            </Card>
-          </div>
-
-          {/* Temperature, Humidity and soilMoisture line charts*/}
-          <div className="mt-6">
-            <Card>
-              <Title>This year's sensor statistics</Title>
-              <Text>
-                Visualization of data collected throughout the year for the
-                sensor
-              </Text>
-              <AreaChart
-                className="h-72 mt-4"
-                data={chardata3}
-                index="date"
-                categories={["Temperature", "Humidity"]}
-                colors={["red", "blue"]}
-              />
-            </Card>
-          </div>
-
-          {/* Projected projections */}
-          <div>
-            <div className="mt-6">
-              <Card>
-                <Title>Projected Statistics</Title>
-                <Text>Projected weather patterns for sensor area</Text>
+              {tempratureData.length > 0 && (
                 <AreaChart
                   className="h-72 mt-4"
-                  data={chardata3}
+                  data={tempratureData}
                   index="date"
                   categories={["Temperature", "Humidity"]}
-                  colors={["red", "blue"]}
+                  colors={["indigo", "cyan"]}
                 />
-              </Card>
-            </div>
+              )}
+            </Card>
+          </div>
+
+          {/* Previous months charts */}
+          <div className="mt-6">
+            <Card>
+              <Title>Previous months statistics</Title>
+              <Text>Visualization of data from the past 3 months</Text>
+              {tempHumidity_Data.length > 0 && (
+                <AreaChart
+                  className="h-72 mt-4"
+                  data={tempHumidity_Data}
+                  index="date"
+                  categories={["Temperature", "Humidity"]}
+                  colors={["red", "orange"]}
+                />
+              )}
+            </Card>
           </div>
         </>
+      ) : // Sensor statistics
+      selectedView === "2" ? (
+        <SensorInfo />
       ) : (
-        <Card className="mt-6">
-          <Title>List of Sensors</Title>
-          <Table className="mt-5">
-            <TableHead>
-              <TableRow>
-                <TableHeaderCell>Sensor Name</TableHeaderCell>
-                <TableHeaderCell>Position</TableHeaderCell>
-                <TableHeaderCell>Status</TableHeaderCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {data1.map((item) => (
-                <TableRow key={item.name}>
-                  <TableCell>
-                    <Text>{item.name}</Text>
-                  </TableCell>
-                  <TableCell>
-                    <Text>{item.Position}</Text>
-                  </TableCell>
-                  <TableCell>
-                    <Badge color="emerald" icon={StatusOnlineIcon}>
-                      {item.status}
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Card>
+        selectedView === "3" && (
+          // Agriculture component
+          <>
+            <Agricomponent />
+          </>
+        )
       )}
     </main>
   );

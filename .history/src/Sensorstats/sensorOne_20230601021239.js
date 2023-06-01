@@ -21,6 +21,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Agricomponent from "../Components/Agri_component";
 import SensorInfo from "../Components/Sensorsinfo";
 import axios from "axios";
+import { data } from "autoprefixer";
 
 export default function WeatherDataGrid(props) {
   const [selectedView, setSelectedView] = useState("1");
@@ -53,31 +54,8 @@ export default function WeatherDataGrid(props) {
   ];
   const tempHumidity_Data = [
     {
-      date: "May 2",
-      Temperature: 26.56,
-      Humidity: 83,
-    },
-    {
-      date: "May 9",
-      Temperature: 22.80,
-      Humidity: 79,
-    },
-    {
-      date: "May 16",
-      Temperature: 23.50,
-      Humidity: 75,
-    },
-    {
-      date: "May 25",
-      Temperature: 23.54,
-      Humidity: 86.96,
-    },
-    {
-      date: "June 2 ",
-      Temperature: 25.50,
-      Humidity: 77,
-    },
 
+    },
   ]
   const [tempHumidity_TableData2, settempHumidity_TableData2] = useState([]);
 
@@ -95,11 +73,17 @@ export default function WeatherDataGrid(props) {
         const fetchedData = response.data; // Assuming the fetched data is in the correct format
 
         //Convert fetched data to the desired format
-        const temperatureTableData = Object.keys(fetchedData).map((key) => ({
-          number: key,
-          Temperature: fetchedData[key].avg_temp.toFixed(2),
-          Humidity: (fetchedData[key].avg_humidity * 100).toFixed(2),
+        const temperatureData = Object.keys(fetchedData).map((key) => ({
+          avg_temp: fetchData[key].avg_temp,
+          avg_humidity: fetchedData[key].avg_humidity,
         }));
+
+        const df = {
+          avg_temp: temperatureData.map((data) => data.avg_temp),
+          avg_humidity: temperatureData.map((data) => data.avg_humidity),
+        };
+
+        console.log(df);
 
         // setTempratureData(temperatureTableData);
         // settempHumidity_Data(tempHumidityTableData);
@@ -162,7 +146,7 @@ export default function WeatherDataGrid(props) {
                     <Text>Current Weather</Text>
                     <div style={{ paddingTop: "10px" }}>
                       <FontAwesomeIcon
-                        icon={faSun}
+                        icon={faCloudSun}
                         size="2xl"
                         style={{
                           "--fa-primary-opacity": "0.9",
@@ -175,11 +159,11 @@ export default function WeatherDataGrid(props) {
                   <div>
                     <Text style={{ fontSize: "20px" }}>
                       {" "}
-                      Temp: 23.88°C
+                      Temp:{tempratureData[7]?.Temperature}°C
                     </Text>
                     <Text style={{ fontSize: "20px" }}>
                       {" "}
-                      Humidity: 75 %
+                      Humidity:{tempratureData[7]?.Humidity} %
                     </Text>
                   </div>
                 </Flex>
@@ -571,10 +555,10 @@ export default function WeatherDataGrid(props) {
             <Card>
               <Title>Previous months statistics</Title>
               <Text>Visualization of data from the past 3 months</Text>
-              {tempHumidity_Data.length > 0 && (
+              {df.length > 0 && (
                 <AreaChart
                   className="h-72 mt-4"
-                  data={tempHumidity_Data}
+                  data={df}
                   index="date"
                   categories={["Temperature", "Humidity"]}
                   colors={["red", "orange"]}

@@ -48,7 +48,7 @@ const Home = () => {
         <h1> <b> Sensor Location: ${location}</b> </h1>
           <h2> Temperature: ${temperature}&deg;C </h2>
           <h2> Humidity: ${humidity}% </h2>
-        <a href="http://localhost:3000/sensorOne" style="color:blue; text-decoration:underline">
+        <a href="http://localhost:3000/weatherdata" style="color:blue; text-decoration:underline">
         View more stats
         </a>
         </div>
@@ -82,7 +82,7 @@ const Home = () => {
       <h1> <b> Sensor Location: ${location}</b> </h1>
         <h2> Temperature: ${temperature}&deg;C </h2>
         <h2> Humidity: ${humidity}% </h2>
-        <a href="http://localhost:3000/sensorTwo" style="color:blue; text-decoration:underline;">View more stats</a>
+        <a href="http://localhost:3000/weatherdata1" style="color:blue; text-decoration:underline;">View more stats</a>
       </div>
       `;
 
@@ -115,7 +115,7 @@ const Home = () => {
         <h2> Temperature: ${temperature}&deg;C </h2>
         <h2> Humidity: ${humidity}% </h2>
       </div>
-      <a href="http://localhost:3000/sensorThree" style="color:blue; text-decoration:underline;">View more stats</a>
+      <a href="http://localhost:3000/weatherdata2" style="color:blue; text-decoration:underline;">View more stats</a>
       `;
 
         const infowindow = new google.maps.InfoWindow({
@@ -147,7 +147,7 @@ const Home = () => {
       <h2> Temperature: ${temperature}&deg;C </h2>
       <h2> Humidity: ${humidity}% </h2>
     </div>
-    <a href="http://localhost:3000/sensorFour" style="color:blue; text-decoration:underline;">View more stats</a>
+    <a href="http://localhost:3000/weatherdata3" style="color:blue; text-decoration:underline;">View more stats</a>
     `;
 
         const infowindow = new google.maps.InfoWindow({

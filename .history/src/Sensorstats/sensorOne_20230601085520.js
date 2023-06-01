@@ -162,7 +162,7 @@ export default function WeatherDataGrid(props) {
                     <Text>Current Weather</Text>
                     <div style={{ paddingTop: "10px" }}>
                       <FontAwesomeIcon
-                        icon={faSun}
+                        icon={faCloudSun}
                         size="2xl"
                         style={{
                           "--fa-primary-opacity": "0.9",
@@ -175,11 +175,11 @@ export default function WeatherDataGrid(props) {
                   <div>
                     <Text style={{ fontSize: "20px" }}>
                       {" "}
-                      Temp: 23.88°C
+                      Temp:{tempratureData[7]?.Temperature}°C
                     </Text>
                     <Text style={{ fontSize: "20px" }}>
                       {" "}
-                      Humidity: 75 %
+                      Humidity:{tempratureData[7]?.Humidity} %
                     </Text>
                   </div>
                 </Flex>

@@ -11,14 +11,14 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBkUPuVjvJAj8QbR3R340J74uEYGnlyaCg",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "unrelo-23b2c.firebaseapp.com",
   projectId: "unrelo-23b2c",
   storageBucket: "unrelo-23b2c.appspot.com",
   messagingSenderId: "330827985359",
   appId: "1:330827985359:web:2cd6e99cb832c133a762ba",
   measurementId: "G-X83KR5896E",
-  databaseURL: "https://unrelo-23b2c-default-rtdb.firebaseio.com/",
+  databaseURL: "key_here",
 };
 
 // Initialize Firebase

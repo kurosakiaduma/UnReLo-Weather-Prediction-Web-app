@@ -53,32 +53,31 @@ export default function WeatherDataGrid(props) {
   ];
   const tempHumidity_Data = [
     {
-      date: "May 2",
+      date: "June 2",
       Temperature: 26.56,
-      Humidity: 83,
+      Humidity: 73,
     },
     {
-      date: "May 9",
-      Temperature: 22.80,
-      Humidity: 79,
+      date: "June 3",
+      Temperature: 20.55,
+      Humidity: 66.5,
     },
     {
-      date: "May 16",
-      Temperature: 23.50,
-      Humidity: 75,
+      date: "June 4",
+      Temperature: 26.45,
+      Humidity: 67.5,
     },
     {
-      date: "May 25",
-      Temperature: 23.54,
-      Humidity: 86.96,
+      date: "June 5",
+      Temperature: 20.46,
+      Humidity: 72,
     },
     {
-      date: "June 2 ",
-      Temperature: 25.50,
-      Humidity: 77,
+      date: "June 6",
+      Temperature: 26.41,
+      Humidity: 73,
     },
-
-  ]
+  ];
   const [tempHumidity_TableData2, settempHumidity_TableData2] = useState([]);
 
   // Nakuru sensor data
@@ -162,7 +161,7 @@ export default function WeatherDataGrid(props) {
                     <Text>Current Weather</Text>
                     <div style={{ paddingTop: "10px" }}>
                       <FontAwesomeIcon
-                        icon={faSun}
+                        icon={faCloudSun}
                         size="2xl"
                         style={{
                           "--fa-primary-opacity": "0.9",
@@ -175,11 +174,11 @@ export default function WeatherDataGrid(props) {
                   <div>
                     <Text style={{ fontSize: "20px" }}>
                       {" "}
-                      Temp: 23.88°C
+                      Temp:{tempratureData[7]?.Temperature}°C
                     </Text>
                     <Text style={{ fontSize: "20px" }}>
                       {" "}
-                      Humidity: 75 %
+                      Humidity:{tempratureData[7]?.Humidity} %
                     </Text>
                   </div>
                 </Flex>
