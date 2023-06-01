@@ -116,9 +116,7 @@ export default function Agricomponent() {
                 the growth of peas:
                 <br />
                 <br />
-                Temperature: 
-                <br />
-                Germination: Peas require soil temperatures between
+                Temperature: Germination: Peas require soil temperatures between
                 40°F (4°C) and 75°F (24°C) for successful germination. They can
                 tolerate cooler temperatures, making them suitable for early
                 spring planting. Vegetative Growth: Peas prefer temperatures
@@ -131,9 +129,7 @@ export default function Agricomponent() {
                 pod development.
                 <br />
                 <br />
-                Humidity: 
-                <br />
-                Peas generally prefer moderate humidity levels.
+                Humidity: Peas generally prefer moderate humidity levels.
                 Relative humidity levels between 50% and 70% are suitable for
                 their growth and development.
                 <br />
@@ -175,6 +171,44 @@ export default function Agricomponent() {
           </Title>
           {showCereals && (
             <>
+              <Subtitle>Maize</Subtitle>
+              <Text>
+                Here are some conditions that are favourable for the growth of
+                maize:
+                <br />
+                <br />
+                Temperature:
+                <br />
+                &nbsp;&nbsp;Germination: Maize seeds germinate best when the
+                soil temperature is between 50°F (10°C) and 86°F (30°C), with an
+                optimal range of 68°F (20°C) to 86°F (30°C).
+                <br />
+                &nbsp;&nbsp;Vegetative Growth: Maize plants thrive in
+                temperatures ranging from 77°F (25°C) to 95°F (35°C) during the
+                vegetative growth stage. However, they can tolerate slightly
+                higher temperatures for short periods.
+                <br />
+                &nbsp;&nbsp;Reproductive Stage: During the reproductive stage
+                (tasseling and pollination), temperatures between 77°F (25°C)
+                and 86°F (30°C) are considered ideal for proper pollination and
+                grain development. Extreme temperatures above 95°F (35°C) can
+                negatively affect pollination and grain formation.
+                <br />
+                <br />
+                Humidity:
+                <br />
+                &nbsp;&nbsp;Maize prefers moderate humidity levels throughout
+                its growth stages. Relative humidity levels between 50% and 70%
+                are generally favorable for maize growth.
+                <br />
+                &nbsp;&nbsp;During the reproductive stage, it is important to
+                have lower humidity levels (around 50%-60%) to minimize the risk
+                of fungal diseases and ensure better pollen dispersal and
+                pollination.
+              </Text>
+              <Subtitle>Wheat</Subtitle>
+              <Title>Cereals</Title>
+
               <Subtitle>Wheat</Subtitle>
               <Text>
                 Here are some conditions that are favourable for the growth of
@@ -212,9 +246,7 @@ export default function Agricomponent() {
                 development.
               </Text>
 
-              < br />
               <Subtitle>Rice</Subtitle>
-              <br />
               <Text>
                 Here are some conditions that are favourable for the growth of
                 rice:
@@ -266,9 +298,7 @@ export default function Agricomponent() {
           </Title>
           {showPests && (
             <>
-            <br />
               <Subtitle>Maize Weevil (Sitophilus zeamais)</Subtitle>
-            <br />
               <Text>
                 Here are some conditions favorable for the prevalence of maize
                 weevil:
@@ -316,9 +346,8 @@ export default function Agricomponent() {
                 src={maizeWeevil}
                 alt="Maize Weevil"
               />
-              <br />
+
               <Subtitle>Bean Aphid (Aphis fabae)</Subtitle>
-              <br />
               <Text>
                 Bean aphids are common pests that can affect bean plants. Here
                 are some key points about bean aphids:
@@ -371,9 +400,8 @@ export default function Agricomponent() {
                 src={beanAphid}
                 alt="Bean Aphid"
               />
-              <br />
+
               <Subtitle>Tomato Leafminer (Tuta absoluta)</Subtitle>
-              <br />
               <Text>
                 Tomato leafminer is a common pest that affects tomato plants.
                 Here are some key points about tomato leafminer:
@@ -425,9 +453,8 @@ export default function Agricomponent() {
                 src={tomatoLeafminer}
                 alt="Tomato Leafminer"
               />
-              <br />
+
               <Subtitle>Coffee Berry Borer (Hypothenemus hampei)</Subtitle>
-              <br />
               <Text>
                 The coffee berry borer is a significant pest that affects coffee
                 plants. Here are some key points about the coffee berry borer:
@@ -479,9 +506,7 @@ export default function Agricomponent() {
                 src={berryBorer}
                 alt="Coffee berry borer"
               />
-              <br />
-              <Title>Cabbage White Butterfly (Pieris brassicae)</Title>
-              <br />
+              <Subtitle>Cabbage White Butterfly (Pieris brassicae)</Subtitle>
               <Text>
                 The cabbage white butterfly is a common pest that affects
                 cabbage and other cruciferous crops. Here are some key points
@@ -537,9 +562,7 @@ export default function Agricomponent() {
                 src={whiteButterfly}
                 alt="Cabbage White Butterfly"
               />
-              <br />
-              <Title>Mango Fruit Fly (Bactorocera dorsalis)</Title>
-              <br />
+              <Subtitle>Mango Fruit Fly (Bactorocera dorsalis)</Subtitle>
               <Text>
                 The mango fruit fly is a common pest that affects mango trees
                 and fruits. Here are some key points about the mango fruit fly:

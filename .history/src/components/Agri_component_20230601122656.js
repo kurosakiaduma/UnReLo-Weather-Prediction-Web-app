@@ -1,10 +1,4 @@
 import { useState } from "react";
-import maizeWeevil from '../assets/icons/Maize Weevil.jpg';
-import beanAphid from '../assets/icons/Bean Aphid.jpg';
-import tomatoLeafminer from '../assets/icons/Tomato Leafminer.jpg';
-import whiteButterfly from '../assets/icons/Cabbage White Butterfly.jpg';
-import fruitFly from '../assets/icons/Mango Fruit Fly.jpg';
-import berryBorer from '../assets/icons/coffee berry borer.jpg';
 import { Image } from "react-bootstrap";
 import { Card, Grid, Text, Title, Col, Divider, Subtitle } from "@tremor/react";
 
@@ -116,9 +110,7 @@ export default function Agricomponent() {
                 the growth of peas:
                 <br />
                 <br />
-                Temperature: 
-                <br />
-                Germination: Peas require soil temperatures between
+                Temperature: Germination: Peas require soil temperatures between
                 40°F (4°C) and 75°F (24°C) for successful germination. They can
                 tolerate cooler temperatures, making them suitable for early
                 spring planting. Vegetative Growth: Peas prefer temperatures
@@ -131,9 +123,7 @@ export default function Agricomponent() {
                 pod development.
                 <br />
                 <br />
-                Humidity: 
-                <br />
-                Peas generally prefer moderate humidity levels.
+                Humidity: Peas generally prefer moderate humidity levels.
                 Relative humidity levels between 50% and 70% are suitable for
                 their growth and development.
                 <br />
@@ -175,6 +165,44 @@ export default function Agricomponent() {
           </Title>
           {showCereals && (
             <>
+              <Subtitle>Maize</Subtitle>
+              <Text>
+                Here are some conditions that are favourable for the growth of
+                maize:
+                <br />
+                <br />
+                Temperature:
+                <br />
+                &nbsp;&nbsp;Germination: Maize seeds germinate best when the
+                soil temperature is between 50°F (10°C) and 86°F (30°C), with an
+                optimal range of 68°F (20°C) to 86°F (30°C).
+                <br />
+                &nbsp;&nbsp;Vegetative Growth: Maize plants thrive in
+                temperatures ranging from 77°F (25°C) to 95°F (35°C) during the
+                vegetative growth stage. However, they can tolerate slightly
+                higher temperatures for short periods.
+                <br />
+                &nbsp;&nbsp;Reproductive Stage: During the reproductive stage
+                (tasseling and pollination), temperatures between 77°F (25°C)
+                and 86°F (30°C) are considered ideal for proper pollination and
+                grain development. Extreme temperatures above 95°F (35°C) can
+                negatively affect pollination and grain formation.
+                <br />
+                <br />
+                Humidity:
+                <br />
+                &nbsp;&nbsp;Maize prefers moderate humidity levels throughout
+                its growth stages. Relative humidity levels between 50% and 70%
+                are generally favorable for maize growth.
+                <br />
+                &nbsp;&nbsp;During the reproductive stage, it is important to
+                have lower humidity levels (around 50%-60%) to minimize the risk
+                of fungal diseases and ensure better pollen dispersal and
+                pollination.
+              </Text>
+              <Subtitle>Wheat</Subtitle>
+              <Title>Cereals</Title>
+
               <Subtitle>Wheat</Subtitle>
               <Text>
                 Here are some conditions that are favourable for the growth of
@@ -212,9 +240,7 @@ export default function Agricomponent() {
                 development.
               </Text>
 
-              < br />
               <Subtitle>Rice</Subtitle>
-              <br />
               <Text>
                 Here are some conditions that are favourable for the growth of
                 rice:
@@ -266,9 +292,7 @@ export default function Agricomponent() {
           </Title>
           {showPests && (
             <>
-            <br />
               <Subtitle>Maize Weevil (Sitophilus zeamais)</Subtitle>
-            <br />
               <Text>
                 Here are some conditions favorable for the prevalence of maize
                 weevil:
@@ -313,12 +337,11 @@ export default function Agricomponent() {
                 <br />
               </Text>
               <Image
-                src={maizeWeevil}
+                src="https://www.bing.com/ck/a?!&&p=dcf81859c68dbde8JmltdHM9MTY4NTU3NzYwMCZpZ3VpZD0yMWNlZGI3Mi04YzY1LTYxZDQtMGMyNC1jODcwOGQ2NDYwNDUmaW5zaWQ9NTQzNw&ptn=3&hsh=3&fclid=21cedb72-8c65-61d4-0c24-c8708d646045&u=a1L2ltYWdlcy9zZWFyY2g_cT1tYWl6ZSB3ZWV2aWwgcGljdHVyZSZGT1JNPUlRRlJCQSZpZD01NEEyODM0QjFBRUI5MjlCQ0JFODc5Qjg4NkJFNDE1OTIxNzk2NzFC&ntb=1"
                 alt="Maize Weevil"
               />
-              <br />
+
               <Subtitle>Bean Aphid (Aphis fabae)</Subtitle>
-              <br />
               <Text>
                 Bean aphids are common pests that can affect bean plants. Here
                 are some key points about bean aphids:
@@ -368,12 +391,11 @@ export default function Agricomponent() {
                 <br />
               </Text>
               <Image
-                src={beanAphid}
+                src="https://www.bing.com/images/search?view=detailV2&ccid=Monl1ONe&id=5E8CB313DAEFB1646F50369C5E098F8CF3630531&thid=OIP.Monl1ONe1ofFIPlAJjPy0AHaF7&mediaurl=https%3a%2f%2fseedsandgrain.com%2fwp-content%2fuploads%2fblack-bean-aphid.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.3289e5d4e35ed687c520f9402633f2d0%3frik%3dMQVj84yPCV6cNg%26pid%3dImgRaw%26r%3d0&exph=600&expw=750&q=bean+aphid&simid=608004049177562540&FORM=IRPRST&ck=660779ADD03334B9D559608C3DE20E38&selectedIndex=31"
                 alt="Bean Aphid"
               />
-              <br />
+
               <Subtitle>Tomato Leafminer (Tuta absoluta)</Subtitle>
-              <br />
               <Text>
                 Tomato leafminer is a common pest that affects tomato plants.
                 Here are some key points about tomato leafminer:
@@ -422,12 +444,11 @@ export default function Agricomponent() {
                 <br />
               </Text>
               <Image
-                src={tomatoLeafminer}
+                src="https://www.bing.com/images/search?view=detailV2&ccid=pCHJGYvk&id=398B7AEEDEDC2140D45D6C6E748DCC4674FFAA90&thid=OIP.pCHJGYvkmsWuDshNzic3fAHaFF&mediaurl=https%3a%2f%2fapps.lucidcentral.org%2fppp%2fimages%2fentities%2ftomato_leafminer_421%2f5432149ppt.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.a421c9198be49ac5ae0ec84dce27377c%3frik%3dkKr%252fdEbMjXRubA%26pid%3dImgRaw%26r%3d0&exph=527&expw=768&q=tomato+leafminer&simid=607994278156397195&FORM=IRPRST&ck=3F79F4BD679B2BABECF70E46C6B6F370&selectedIndex=5"
                 alt="Tomato Leafminer"
               />
-              <br />
+
               <Subtitle>Coffee Berry Borer (Hypothenemus hampei)</Subtitle>
-              <br />
               <Text>
                 The coffee berry borer is a significant pest that affects coffee
                 plants. Here are some key points about the coffee berry borer:
@@ -476,12 +497,10 @@ export default function Agricomponent() {
                 <br />
               </Text>
               <Image
-                src={berryBorer}
+                src="https://www.bing.com/images/search?view=detailV2&ccid=Ru%2b8CKEE&id=5309FC77AC87B7B1D9EBCCF9C17A946732D96141&thid=OIP.Ru-8CKEEVLhf83ckcnDXdgEsDt&mediaurl=https%3a%2f%2fbigislandnow.com%2fwp-content%2fuploads%2f2017%2f03%2fHypothenemus.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.46efbc08a10454b85ff377247270d776%3frik%3dQWHZMmeUesH5zA%26pid%3dImgRaw%26r%3d0&exph=825&expw=1041&q=coffee+berry+borer&simid=608046092592548074&FORM=IRPRST&ck=306B1333CE88F687108E7DB9DD2898FB&selectedIndex=5"
                 alt="Coffee berry borer"
               />
-              <br />
-              <Title>Cabbage White Butterfly (Pieris brassicae)</Title>
-              <br />
+              <Subtitle>Cabbage White Butterfly (Pieris brassicae)</Subtitle>
               <Text>
                 The cabbage white butterfly is a common pest that affects
                 cabbage and other cruciferous crops. Here are some key points
@@ -534,12 +553,10 @@ export default function Agricomponent() {
                 <br />
               </Text>
               <Image
-                src={whiteButterfly}
+                src="https://www.bing.com/images/search?view=detailV2&ccid=I%2bhD2KKm&id=9ACE47F7060F7D9DBE080FE4F561AEF58F95E3A5&thid=OIP.I-hD2KKmYddzvNTcNpQ4JwHaFF&mediaurl=https%3a%2f%2fwww.nature-and-garden.com%2fwp-content%2fuploads%2fsites%2f4%2f2020%2f08%2fpieris-brassicae.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.23e843d8a2a661d773bcd4dc36943827%3frik%3dpeOVj%252fWuYfXkDw%26pid%3dImgRaw%26r%3d0&exph=825&expw=1200&q=cabbage+white+butterfly&simid=608056164320640677&FORM=IRPRST&ck=C1FD3338B17520FAD8D6020B1C92E13B&selectedIndex=5"
                 alt="Cabbage White Butterfly"
               />
-              <br />
-              <Title>Mango Fruit Fly (Bactorocera dorsalis)</Title>
-              <br />
+              <Subtitle>Mango Fruit Fly (Bactorocera dorsalis)</Subtitle>
               <Text>
                 The mango fruit fly is a common pest that affects mango trees
                 and fruits. Here are some key points about the mango fruit fly:
@@ -594,7 +611,7 @@ export default function Agricomponent() {
                 <br />
               </Text>
               <Image
-                src={fruitFly}
+                src="https://www.bing.com/images/search?view=detailV2&ccid=Xielo1A3&id=710DD5D1AA308F1235745545E5227B8BECA38307&thid=OIP.Xielo1A3TJxlyg2iB8QsTAHaFj&mediaurl=https%3a%2f%2fwww.aciar.gov.au%2fsites%2fdefault%2ffiles%2frhm2_java_fruitfly-on_mango_069829.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.5e27a5a350374c9c65ca0da207c42c4c%3frik%3dB4Oj7It7IuVFVQ%26pid%3dImgRaw%26r%3d0&exph=1128&expw=1504&q=Mango+fruit+fly&simid=607990137803710424&FORM=IRPRST&ck=FB3CC447979E483DC39242F5B0F5E1E7&selectedIndex=0"
                 alt="Mango Fruit Fly"
               />
             </>

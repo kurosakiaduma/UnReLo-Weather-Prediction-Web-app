@@ -175,6 +175,7 @@ export default function Agricomponent() {
           </Title>
           {showCereals && (
             <>
+             
               <Subtitle>Wheat</Subtitle>
               <Text>
                 Here are some conditions that are favourable for the growth of
@@ -212,9 +213,7 @@ export default function Agricomponent() {
                 development.
               </Text>
 
-              < br />
               <Subtitle>Rice</Subtitle>
-              <br />
               <Text>
                 Here are some conditions that are favourable for the growth of
                 rice:
@@ -266,9 +265,7 @@ export default function Agricomponent() {
           </Title>
           {showPests && (
             <>
-            <br />
               <Subtitle>Maize Weevil (Sitophilus zeamais)</Subtitle>
-            <br />
               <Text>
                 Here are some conditions favorable for the prevalence of maize
                 weevil:
@@ -316,9 +313,8 @@ export default function Agricomponent() {
                 src={maizeWeevil}
                 alt="Maize Weevil"
               />
-              <br />
+
               <Subtitle>Bean Aphid (Aphis fabae)</Subtitle>
-              <br />
               <Text>
                 Bean aphids are common pests that can affect bean plants. Here
                 are some key points about bean aphids:
@@ -371,9 +367,8 @@ export default function Agricomponent() {
                 src={beanAphid}
                 alt="Bean Aphid"
               />
-              <br />
+
               <Subtitle>Tomato Leafminer (Tuta absoluta)</Subtitle>
-              <br />
               <Text>
                 Tomato leafminer is a common pest that affects tomato plants.
                 Here are some key points about tomato leafminer:
@@ -425,9 +420,8 @@ export default function Agricomponent() {
                 src={tomatoLeafminer}
                 alt="Tomato Leafminer"
               />
-              <br />
+
               <Subtitle>Coffee Berry Borer (Hypothenemus hampei)</Subtitle>
-              <br />
               <Text>
                 The coffee berry borer is a significant pest that affects coffee
                 plants. Here are some key points about the coffee berry borer:
@@ -479,9 +473,7 @@ export default function Agricomponent() {
                 src={berryBorer}
                 alt="Coffee berry borer"
               />
-              <br />
               <Title>Cabbage White Butterfly (Pieris brassicae)</Title>
-              <br />
               <Text>
                 The cabbage white butterfly is a common pest that affects
                 cabbage and other cruciferous crops. Here are some key points
@@ -537,9 +529,7 @@ export default function Agricomponent() {
                 src={whiteButterfly}
                 alt="Cabbage White Butterfly"
               />
-              <br />
               <Title>Mango Fruit Fly (Bactorocera dorsalis)</Title>
-              <br />
               <Text>
                 The mango fruit fly is a common pest that affects mango trees
                 and fruits. Here are some key points about the mango fruit fly:
