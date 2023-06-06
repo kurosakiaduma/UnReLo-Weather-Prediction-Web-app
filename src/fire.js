@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyBkUPuVjvJAj8QbR3R340J74uEYGnlyaCg",
+    apiKey: "api_key",
     authDomain: "unrelo-23b2c.firebaseapp.com",
     databaseURL: "https://unrelo-23b2c-default-rtdb.firebaseio.com",
     projectId: "unrelo-23b2c",
