@@ -35,8 +35,8 @@ export default function WeatherDataGrid(props) {
       try {
         // 5 Day forecast endpoint.
         const response = await axios.post("http://127.0.0.1:5000/predict", {
-          start_date: "2023/06/02",
-          end_date: "2023/06/03",
+          start_date: "",
+          end_date: "",
           sesnor: 1,
         });
 
@@ -53,8 +53,8 @@ export default function WeatherDataGrid(props) {
 
         //Monthly data
         const response2 = await axios.post("http://127.0.0.1:5000/predict", {
-          start_date: "2023/03/02",
-          end_date: "2023/06/02",
+          start_date: "",
+          end_date: "",
           sensor: 1,
         });
 
@@ -70,8 +70,8 @@ export default function WeatherDataGrid(props) {
 
         //Monthly data
         const response3 = await axios.post("http://127.0.0.1:5000/predict", {
-          start_date: "2022/06/02",
-          end_date: "2023/06/02",
+          start_date: "",
+          end_date: "",
           sensor: 1,
         });
 
@@ -177,7 +177,7 @@ export default function WeatherDataGrid(props) {
             <Card className="max-w-lg" decoration="top" decorationColor="blue">
               <Flex alignItems="start">
                 <div>
-                  <Text>09:00</Text>
+                  <Text></Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
                       icon={faTemperatureLow}
@@ -206,7 +206,7 @@ export default function WeatherDataGrid(props) {
             <Card className="max-w-lg" decoration="top" decorationColor="blue">
               <Flex alignItems="start">
                 <div>
-                  <Text> 10:00 </Text>
+                  <Text>  </Text>
                   <div style={{ paddingTop: "10px", paddingLeft: "5px" }}>
                     <FontAwesomeIcon
                       icon={faSun}
@@ -235,7 +235,7 @@ export default function WeatherDataGrid(props) {
             <Card className="max-w-lg" decoration="top" decorationColor="blue">
               <Flex alignItems="start">
                 <div>
-                  <Text> 11:00 </Text>
+                  <Text>  </Text>
                   <div style={{ paddingTop: "10px" }}>
                     <FontAwesomeIcon
                       icon={faSun}
